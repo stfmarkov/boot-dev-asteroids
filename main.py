@@ -1,5 +1,6 @@
 import pygame
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT, ASTEROID_MIN_RADIUS, ASTEROID_KINDS, ASTEROID_SPAWN_RATE, ASTEROID_MAX_RADIUS 
+from player import Player
 
 def main():
     print("Starting asteroids!")
@@ -11,12 +12,19 @@ def main():
     clock = pygame.time.Clock()
     dt = 0
 
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+
     while (True):
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 return
+            
         pygame.Surface.fill(screen, (0,0,0))
+
+        player.draw(screen)
+
         pygame.display.flip()
+
         passedTime = clock.tick(60)
         dt = passedTime/1000
 
