@@ -38,6 +38,12 @@ def main():
         for object in drawable:
             object.draw(screen)
 
+        for asteroid in asteroids:
+            has_colided = asteroid.check_collision(player)
+            if(has_colided):
+                print("Game over!")
+                exit()
+
         pygame.display.flip()
 
         passedTime = clock.tick(60)
