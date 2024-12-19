@@ -50,7 +50,7 @@ def main():
             for bulet in bulets:
                 if(asteroid.check_collision(bulet)):
                     bulet.kill()
-                    asteroid.kill()
+                    asteroid.split()
                     break
         
                         
